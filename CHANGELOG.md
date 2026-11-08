@@ -8,7 +8,7 @@ Cada sprint cerrado genera una versión. Las versiones 0.1.0–0.4.0 se registra
 - [HU-9.1] Documentación Scrum: backlog, historial de sprints, ADR, arquitectura y Definición de Hecho.
 - [HU-9.5] README orientado a portafolio y repositorio público de caso de estudio.
 ### Corregido
-- [HU-9.3] Bot: `dockerignore` renombrado a `.dockerignore`.
+- [HU-9.3] Bot: corregida la exclusión de archivos locales al construir la imagen Docker.
 - [HU-9.3] `SPEC.md`: retirada una sección fuera del alcance del producto.
 
 ## [0.4.0] - 2026-11-07 — Sprint 4: Ingresos en la web
@@ -22,7 +22,7 @@ Cada sprint cerrado genera una versión. Las versiones 0.1.0–0.4.0 se registra
 ### Añadido
 - [HU-6.1–6.7] App web: inicio con barras por categoría, movimientos, registro por foto/texto/voz, edición y división, rediseño e ícono para iPhone.
 - [HU-7.1–7.4] Presupuestos, alertas por categoría, recurrentes y configuración sincronizada en `WebConfig`.
-- [HU-8.2–8.3] Login con contraseña, sesión firmada de 60 días y bloqueo tras 5 intentos.
+- [HU-8.2–8.3] Login con contraseña, sesión firmada y bloqueo ante intentos fallidos; credenciales solo en el servidor.
 - [HU-4.3, HU-5.4] Web desplegada en Railway sobre la misma hoja del bot.
 
 ## [0.2.0] - 2026-10-25 — Sprint 2: Vuelto 24/7

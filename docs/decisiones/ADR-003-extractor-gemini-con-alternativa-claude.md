@@ -18,4 +18,4 @@ Gemini por defecto (cuota gratuita, modelos en cascada vía `GEMINI_MODEL`) y Cl
 - ✅ Funciona con formatos nunca vistos; categoría inferida en el mismo paso.
 - ✅ El usuario siempre confirma antes de guardar, así que un error de lectura no contamina la hoja.
 - ⚠️ Dependencia de un servicio externo; si falla, el bot avisa y se puede registrar por texto.
-- ⚠️ El prompt existe en el bot y en la web (DT-4).
+- ⚠️ El prompt existe en el bot y en la web.

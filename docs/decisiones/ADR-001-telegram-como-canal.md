@@ -15,5 +15,5 @@ Usar un bot de Telegram como primera interfaz: el usuario envía la foto y confi
 
 ## Consecuencias
 - ✅ Cámara, notificaciones e historial "gratis"; MVP en un día.
-- ✅ Bot privado con lista de IDs permitidos (`ALLOWED_USER_IDS`).
+- ✅ Bot privado: solo responde a usuarios autorizados.
 - ⚠️ La experiencia visual queda limitada a mensajes y botones; se complementa con la web.

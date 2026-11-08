@@ -1,47 +1,44 @@
 # Sprint 5: Profesionalización
 
+> Versión pública y resumida. El detalle operativo del sprint se gestiona en el repositorio privado.
+
 - **Objetivo del sprint:** dejar Vuelto listo para mostrarse como proyecto de portafolio —seguro, versionado, probado y documentado— **sin interrumpir el servicio en uso**.
 - **Fechas:** 2026-11-08 → 2026-11-21 · **Versión objetivo:** v1.0.0
 - **Capacidad:** 12 puntos
 
 ## Regla del sprint
-Vuelto está en producción. Ninguna tarea cambia variables de entorno, nombres de pestañas de la hoja o el comando
-de arranque sin un plan de vuelta atrás. Los cambios se hacen en ramas y se verifican en Railway después de cada merge.
+Vuelto está en producción. Ningún cambio de configuración se hace sin un plan de vuelta atrás. Todo cambio pasa por
+rama + Pull Request y se verifica el despliegue después de cada merge.
 
 ## Historias comprometidas
 | ID | Historia | Puntos | Estado |
 |----|----------|--------|--------|
 | HU-9.1 | Documentación Scrum retroactiva | 2 | ✅ Hecha |
 | HU-9.3 | Corregir hallazgos de la auditoría | 2 | ✅ Hecha |
-| HU-9.2 | Carpeta del bot enlazada a su repo privado | 1 | ✅ Hecha |
+| HU-9.2 | Código del bot gestionado con git (commits y ramas) | 1 | ✅ Hecha |
 | HU-9.4 | Tests + CI | 5 | ⏳ Pendiente |
 | HU-9.5 | Repositorio público de caso de estudio | 2 | 🔄 En curso |
 
 ## Tareas
-| ID | Tarea | HU | Estado | Notas |
-|----|-------|----|--------|-------|
-| T1 | Crear `docs/` con backlog, sprints 1–4, ADR, arquitectura y DoD | HU-9.1 | ✅ | Reconstruido desde código, commits y fechas |
-| T2 | Configurar `git config user.email` con el correo `noreply` de GitHub | DT-9 | ✅ | Correo `noreply` ya configurado globalmente. El PO pidió corregir también el historial: 3 commits del 2026-11-07 en `Vuelto-web.io` reescritos (force push con respaldo), tags v0.3.0/v0.4.0 movidos, código idéntico y despliegue verificado |
-| T3 | Renombrar `dockerignore` → `.dockerignore` en el bot | HU-9.3 | ✅ | Variables de Railway verificadas antes; commit en `MyFinanzas.io` y despliegue exitoso el 2026-11-07 |
-| T4 | Retirar la sección fuera de alcance de `SPEC.md` | HU-9.3 | ✅ | Solo documentación |
-| T5 | Enlazar la carpeta local del bot con `MyFinanzas.io` (`git init` + `fetch` + `reset`) | HU-9.2 | ✅ | Carpeta local clonada desde `MyFinanzas.io`; `.env` y `credenciales.json` siguen ignorados |
-| T6 | Versionar `instalar_servidor.sh` en el repo del bot | HU-9.2 | ✅ | PR #4 en `MyFinanzas.io`; despliegue en Railway exitoso el 2026-11-08 |
-| T7 | Crear repositorio **público** `vuelto-portafolio` (caso de estudio sin código) y subir la documentación | HU-9.5 | 🔄 | Repo creado; falta el primer push |
-| T8 | Tests de `nlpParser`, `budget`, `recurring` (Vitest) y de `parse_amount` / `parse_date` (pytest) | HU-9.4 | ⏳ | `SPEC.md` §5.4 ya trae casos de prueba |
-| T9 | GitHub Actions: build + tests en cada push | HU-9.4 | ⏳ | |
-| T10 | Capturas con datos ficticios (hoja de demo aparte) | HU-9.5 | ⏳ | Nunca capturas de la hoja real |
-| T11 | `/cerrar-sprint` → tag `v1.0.0` y GitHub Release | — | ⏳ | |
+| ID | Tarea | HU | Estado |
+|----|-------|----|--------|
+| T1 | Backlog, historial de sprints, ADR, arquitectura y Definición de Hecho | HU-9.1 | ✅ |
+| T2 | Autoría de commits vinculada al perfil de GitHub | Deuda técnica | ✅ |
+| T3 | Corregir la exclusión de archivos locales en la imagen Docker del bot | HU-9.3 | ✅ |
+| T4 | Retirar de la especificación una sección fuera de alcance | HU-9.3 | ✅ |
+| T5 | Enlazar la carpeta local del bot con su repositorio | HU-9.2 | ✅ |
+| T6 | Versionar el script de instalación alternativo del bot | HU-9.2 | ✅ |
+| T7 | Publicar este repositorio de caso de estudio | HU-9.5 | 🔄 |
+| T8 | Tests de parsers, presupuesto y recurrentes (Vitest y pytest) | HU-9.4 | ⏳ |
+| T9 | GitHub Actions: build + tests en cada push | HU-9.4 | ⏳ |
+| T10 | Capturas con datos ficticios | HU-9.5 | ⏳ |
+| T11 | Cierre del sprint: versión `v1.0.0` y GitHub Release | — | ⏳ |
+| T12 | Versión curada para el público: sin detalle de seguridad, infraestructura ni guías operativas | HU-9.5 | 🔄 |
 
 Estados: ⏳ Pendiente · 🔄 En curso · ✅ Hecha · ⛔ Bloqueada
 
-## Descubierto durante el sprint
--
-
 ## Registro diario
-| Fecha | Hecho | Siguiente | Bloqueos |
-|-------|-------|-----------|----------|
-| 2026-11-07 | Auditoría y documentación retroactiva (T1). PO decide: código privado + repo público de caso de estudio. Hallazgo corregido: el bot sí estaba en GitHub (`MyFinanzas.io`). T3 y T4 hechas | T2, T5, T7 | — |
-| 2026-11-08 | Tablero en GitHub (Project Vuelto, milestone Sprint 5, 14 issues). PO completa HU-9.2 (T5, T6): PR #4 en `MyFinanzas.io`, issue cerrado y despliegue del bot verificado. T2 (DT-9): historial de `Vuelto-web.io` corregido con force push; respaldo en `_respaldo/` | T7 | — |
-
-## Riesgo detectado
-- Railway está en plan **Trial** (crédito limitado). Al agotarse, los servicios se detienen. Decisión del PO pendiente: elegir plan o alternativa.
+| Fecha | Hecho | Siguiente |
+|-------|-------|-----------|
+| 2026-11-07 | Auditoría y documentación retroactiva. El PO decide: código privado + repositorio público de caso de estudio. T3 y T4 hechas | T2, T5, T7 |
+| 2026-11-08 | Tablero en GitHub Projects con milestone del sprint. HU-9.2 completada (T5, T6). T2 completada. Inicio de la curación pública (T12) | T7, T12 |

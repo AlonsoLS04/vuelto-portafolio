@@ -8,8 +8,8 @@ y ser privada para un único usuario.
 
 ## Decisión
 Un solo servicio Node: Express sirve la app React compilada (Vite) y una API `/api/*` que habla con Google Sheets.
-Acceso con una contraseña (`APP_PASSWORD`), cookie de sesión firmada con HMAC por 60 días y bloqueo de 5 minutos
-tras 5 intentos fallidos por IP. Imagen Docker multi-etapa: la imagen final solo lleva `server.js` y `dist/`.
+Acceso con contraseña, sesión firmada de larga duración y bloqueo temporal ante intentos fallidos repetidos.
+Imagen Docker multi-etapa: la imagen final solo lleva el servidor y la app compilada.
 
 ## Alternativas consideradas
 - **Frontend estático que llama directo a Google** — descartada: expondría credenciales.
@@ -17,4 +17,4 @@ tras 5 intentos fallidos por IP. Imagen Docker multi-etapa: la imagen final solo
 
 ## Consecuencias
 - ✅ Un despliegue, un dominio; credencial solo en el servidor.
-- ⚠️ El control de intentos vive en memoria y se reinicia con cada despliegue. Aceptable para uso personal.
+- ⚠️ La autenticación es de un solo usuario; para varios usuarios habría que migrar a un proveedor de identidad.
