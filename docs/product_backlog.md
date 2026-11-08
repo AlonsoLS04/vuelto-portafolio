@@ -111,7 +111,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | ID | Historia | Prioridad | Puntos | Estado |
 |----|----------|-----------|--------|--------|
 | HU-9.1 | Como PO, quiero el proyecto documentado con Scrum (backlog, sprints, ADR, DoD), para gestionarlo y mostrarlo en mi portafolio. | M | 2 | En sprint 5 |
-| HU-9.2 ([AlonsoLS04/MyFinanzas.io#1](https://github.com/AlonsoLS04/MyFinanzas.io/issues/1)) | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado (`MyFinanzas.io`), para trabajar con commits y ramas en lugar de subir archivos por la web. | M | 1 | En sprint 5 |
+| HU-9.2 ([AlonsoLS04/MyFinanzas.io#1](https://github.com/AlonsoLS04/MyFinanzas.io/issues/1)) | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado (`MyFinanzas.io`), para trabajar con commits y ramas en lugar de subir archivos por la web. | M | 1 | Hecha (Sprint 5) |
 | HU-9.3 | Como PO, quiero corregir los hallazgos de la auditoría (DT-1, DT-6), para mantener el código limpio y seguro. | M | 2 | En sprint 5 |
 | HU-9.4 ([AlonsoLS04/Vuelto-web.io#2](https://github.com/AlonsoLS04/Vuelto-web.io/issues/2)) | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | S | 5 | En sprint 5 |
 | HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | S | 2 | En sprint 5 |
@@ -144,7 +144,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | ID | Hallazgo | Riesgo | Acción propuesta |
 |----|----------|--------|------------------|
 | DT-1 | En el bot el archivo se llamaba `dockerignore` (sin punto), así que Docker no lo aplicaba y `COPY . .` podía meter `.env` y `credenciales.json` en una imagen construida desde la carpeta local. En la práctica Railway construye desde GitHub, donde esos archivos nunca se subieron. | Medio | ✅ Renombrado a `.dockerignore` el 2026-11-07; despliegue verificado. |
-| DT-2 | El bot está en el repositorio privado `MyFinanzas.io` (subido por la web de GitHub), pero la carpeta local no es un clon de git. | Medio | Enlazar la carpeta al repositorio (HU-9.2). |
+| DT-2 | El bot está en el repositorio privado `MyFinanzas.io` (subido por la web de GitHub), pero la carpeta local no es un clon de git. | Medio | ✅ Resuelto con HU-9.2 el 2026-11-08. |
 | DT-3 ([AlonsoLS04/Vuelto-web.io#9](https://github.com/AlonsoLS04/Vuelto-web.io/issues/9)) | `vuelto-foto` es una copia intermedia de la web (Sprint 3) que quedó suelta. | Bajo | Archivar fuera del proyecto tras HU-9.2. |
 | DT-4 ([AlonsoLS04/Vuelto-web.io#10](https://github.com/AlonsoLS04/Vuelto-web.io/issues/10)) | El prompt de lectura de vouchers y la lista de categorías están duplicados en Python (bot) y JavaScript (web) y pueden divergir. | Medio | Fuente única de categorías y prompt. |
 | DT-5 | El bot guarda borradores con `PicklePersistence`; en Railway el disco es efímero y se pierden en cada redeploy. | Bajo | Aceptado por ahora; documentado en ADR-004. |
