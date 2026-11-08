@@ -7,8 +7,12 @@ Bot de Telegram + app web instalable en iPhone, sobre una misma hoja de Google S
 > Este repositorio documenta **cómo se gestionó el producto**: visión, backlog, sprints, decisiones técnicas y arquitectura.
 > Puedo mostrar el código en una entrevista compartiendo pantalla.
 
-<!-- Capturas con datos ficticios: ver capturas/LEEME.md -->
-<!-- ![Inicio de la app web](capturas/web-inicio.png) ![Bot en Telegram](capturas/bot-voucher.png) -->
+<p align="center">
+  <img src="capturas/web-inicio.png" width="250" alt="Inicio de la app web: gasto del mes, presupuesto y barras por categoría">
+  <img src="capturas/web-foto.png" width="250" alt="Registro por foto: la IA lee una boleta y propone el gasto">
+  <img src="capturas/web-presupuesto.png" width="250" alt="Presupuesto mensual y topes por categoría">
+</p>
+<p align="center"><sub>Capturas con datos ficticios.</sub></p>
 
 ---
 

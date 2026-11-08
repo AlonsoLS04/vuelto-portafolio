@@ -6,7 +6,7 @@ Cada sprint cerrado genera una versión. Las versiones 0.1.0–0.4.0 se registra
 ## [Sin publicar] — Sprint 5: Profesionalización
 ### Añadido
 - [HU-9.1] Documentación Scrum: backlog, historial de sprints, ADR, arquitectura y Definición de Hecho.
-- [HU-9.5] README orientado a portafolio y repositorio público de caso de estudio.
+- [HU-9.5] Repositorio público de caso de estudio: README orientado a portafolio, documentación curada y capturas con datos ficticios.
 ### Corregido
 - [HU-9.3] Bot: corregida la exclusión de archivos locales al construir la imagen Docker.
 - [HU-9.3] `SPEC.md`: retirada una sección fuera del alcance del producto.
