@@ -28,6 +28,6 @@ HU-4.3 · HU-5.4 · HU-6.1 a HU-6.7 · HU-7.1 a HU-7.4 · HU-8.2 · HU-8.3
 
 ## Retrospectiva (lecciones aprendidas, escritas el 2026-11-07)
 - ✅ **Funcionó:** escribir primero una especificación (`SPEC.md`) y construir contra ella.
-- ✅ **Funcionó:** reutilizar la hoja y las variables del bot (`${{worker.*}}` en Railway) en lugar de crear otra base.
-- ⚠️ **Mejorar:** se trabajó en copias de carpeta (`vuelto-foto`, `vuelto-web`) antes de usar git; las ramas resuelven eso (DT-3).
-- ⚠️ **Mejorar:** el prompt de lectura y las categorías se copiaron del bot a la web (DT-4).
+- ✅ **Funcionó:** reutilizar la hoja y la configuración del bot en lugar de crear otra base.
+- ⚠️ **Mejorar:** se trabajó en copias de carpeta (`vuelto-foto`, `vuelto-web`) antes de usar git; las ramas resuelven eso.
+- ⚠️ **Mejorar:** el prompt de lectura y las categorías se copiaron del bot a la web.

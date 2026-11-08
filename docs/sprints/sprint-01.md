@@ -29,5 +29,5 @@ Fechas de creación de `README.md`, `.env.example`, `requirements.txt` (19:42), 
 ## Retrospectiva (lecciones aprendidas, escritas el 2026-11-07)
 - ✅ **Funcionó:** empezar por el flujo más corto de valor (foto → fila) y dejar la corrección en manos del usuario antes de guardar.
 - ✅ **Funcionó:** diseñar la hoja pensando en Power BI desde el día 1 (fecha y monto tipados, monto siempre positivo + columna Tipo).
-- ⚠️ **Mejorar:** el código no se versionó en git desde el inicio (ver DT-2).
+- ⚠️ **Mejorar:** el código no se versionó en git desde el inicio.
 - ⚠️ **Mejorar:** sin casos de prueba para `parse_amount` y `parse_date`, que es donde más se equivoca un lector de vouchers.

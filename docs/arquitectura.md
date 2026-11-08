@@ -1,10 +1,10 @@
 # Arquitectura — Vuelto
 
-> Código fuente en dos repositorios privados: `Vuelto-web.io` (app web) y `MyFinanzas.io` (bot de Telegram).
+> Versión pública y resumida. El código fuente y la documentación operativa viven en repositorios privados.
 
 ## Resumen
 Dos clientes (un bot de Telegram y una app web) escriben y leen en una misma hoja de Google Sheets, que actúa como
-base de datos y como origen para Power BI. Ambos servicios corren en el mismo proyecto de Railway y comparten variables.
+base de datos y como origen para Power BI. Ambos servicios se despliegan en la nube con despliegue continuo desde `main`.
 La lectura de comprobantes se hace con un modelo de visión (Gemini por defecto).
 
 ## Diagrama
@@ -14,12 +14,12 @@ flowchart LR
       T[Telegram]
       W[iPhone / navegador]
     end
-    subgraph Railway
-      B["worker · bot.py<br/>Python"]
-      S["web · server.js<br/>Express + React"]
+    subgraph Nube
+      B["Bot<br/>Python"]
+      S["Web<br/>Express + React"]
     end
-    G[("Google Sheets<br/>Movimientos · WebConfig")]
-    V{{"Gemini API<br/>o Claude API"}}
+    G[("Google Sheets<br/>Movimientos · Configuración")]
+    V{{"Modelo de visión<br/>Gemini o Claude"}}
     P[Power BI]
 
     T -- foto / texto --> B
@@ -32,26 +32,23 @@ flowchart LR
 ```
 
 ## Componentes
-| Componente | Stack | Ubicación | Despliegue |
-|-----------|-------|-----------|------------|
-| Bot | Python 3.12, `python-telegram-bot`, `gspread`, `httpx` | repo privado `MyFinanzas.io` | Railway, servicio `worker`: despliegue automático al hacer push a `main` |
-| Web | React 19, Vite, Tailwind CSS v4, `motion`, `lucide-react`; servidor Express 5 + `google-auth-library` | repo privado `Vuelto-web.io` | Railway, servicio `Vuelto-web.io`: despliegue automático al hacer push a `main` (Docker multi-etapa) |
-| Datos | Google Sheets (pestañas `Movimientos` y `WebConfig`) | cuenta de Google del PO | — |
-| Lectura de imágenes | Gemini (`generateContent`, respuesta JSON) con modelos en cascada; Claude opcional en el bot | APIs externas | — |
+| Componente | Stack | Despliegue |
+|-----------|-------|------------|
+| Bot | Python 3.12, `python-telegram-bot`, `gspread`, `httpx` | Contenedor Docker con despliegue continuo desde `main` |
+| Web | React 19, Vite, Tailwind CSS v4, `motion`, `lucide-react`; servidor Express 5 | Contenedor Docker multi-etapa con despliegue continuo desde `main` |
+| Datos | Google Sheets (una pestaña de movimientos y otra de configuración) | — |
+| Lectura de imágenes | Gemini (respuesta JSON estructurada) con modelos en cascada; Claude como alternativa en el bot | APIs externas |
 
-## Estructura del repositorio `Vuelto-web.io`
+## Estructura de la app web
 ```
-vuelto-web/
+web/
 ├── server.js            # API, sesión, Google Sheets, lectura de vouchers y estáticos
-├── index.html
 ├── src/
 │   ├── App.jsx          # pestañas: inicio, movimientos, recurrentes, presupuesto
 │   ├── components/      # Dashboard, QuickAdd, TransactionEditor, BudgetScreen, ...
-│   └── lib/             # store, remote, parsers, clasificador, presupuesto, recurrentes
+│   └── lib/             # parsers, clasificador, presupuesto, recurrentes
 ├── public/              # ícono para iPhone
-├── SPEC.md              # especificación funcional inicial (Sprint 3)
-├── Dockerfile
-└── docs/                # gestión Scrum del producto
+└── Dockerfile
 ```
 
 ## Modelo de datos — pestaña `Movimientos`
@@ -60,33 +57,17 @@ vuelto-web/
 
 - `Monto` siempre positivo; el signo lo da `Tipo` (`gasto` / `ingreso`).
 - `Fecha` y `Monto` se escriben tipados para que Power BI no necesite conversiones.
-- `Origen`: `foto` o `texto` cuando viene del bot; `web-<fuente>` cuando viene de la web.
+- `Origen` indica si el movimiento vino del bot (foto o texto) o de la web.
 
 ## API de la web
-| Método | Ruta | Uso |
-|--------|------|-----|
-| POST | `/api/login` · `/api/logout` | Sesión con cookie firmada (HMAC), 60 días; 5 intentos fallidos → bloqueo de 5 min por IP |
-| GET | `/api/state` | Movimientos + configuración |
-| GET/POST/PUT/DELETE | `/api/movimientos[/:id]` | CRUD sobre la hoja |
-| POST | `/api/leer-voucher` | Imagen comprimida (≤1600 px) → borrador |
-| PUT | `/api/config` | Presupuestos, recurrentes y reglas → `WebConfig` |
-| GET | `/healthz` | Health check |
+API REST bajo `/api/*`, protegida por sesión: CRUD de movimientos, lectura de vouchers (la imagen se comprime en el
+navegador antes de enviarse) y sincronización de presupuestos, recurrentes y reglas.
 
-## Ejecutar en local
-Ver la guía de instalación de cada repositorio privado.
-
-## Variables de entorno
-| Variable | Servicio | Para qué |
-|----------|----------|----------|
-| `TELEGRAM_BOT_TOKEN` | bot | Token de @BotFather |
-| `ALLOWED_USER_IDS` | bot | IDs de Telegram autorizados |
-| `SHEET_ID` | ambos | Hoja de Google |
-| `GOOGLE_CREDENTIALS_JSON` / `GOOGLE_CREDENTIALS_FILE` | ambos | Cuenta de servicio |
-| `EXTRACTOR`, `GEMINI_API_KEY`, `GEMINI_MODEL` | ambos | Lectura de imágenes |
-| `ANTHROPIC_API_KEY`, `CLAUDE_MODEL` | bot (opcional) | Lector alternativo |
-| `TIMEZONE` | bot | `America/Lima` |
-| `APP_PASSWORD`, `SESSION_SECRET` (opcional) | web | Acceso a la web |
-> En Railway la web toma las variables del bot con `${{worker.VARIABLE}}`. Los valores reales nunca van a git.
+## Seguridad y privacidad (principios)
+- Las credenciales de Google y las claves de API viven solo en el servidor, como variables de entorno; nunca llegan al navegador ni a git.
+- El bot solo responde a usuarios autorizados.
+- La web exige contraseña, usa sesión firmada y limita los intentos de acceso.
+- Los datos financieros reales nunca se publican: las capturas usan una hoja de demostración con datos ficticios.
 
 ## Decisiones técnicas
 Ver [`decisiones/`](decisiones/).
