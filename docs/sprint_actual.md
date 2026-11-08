@@ -35,7 +35,7 @@ de arranque sin un plan de vuelta atrás. Los cambios se hacen en ramas y se ver
 Estados: ⏳ Pendiente · 🔄 En curso · ✅ Hecha · ⛔ Bloqueada
 
 ## Descubierto durante el sprint
--
+- 2026-11-08: al cerrar DT-9 se detectó que los commits locales no están firmados (sin *Verified*). Se agregó al backlog como DT-10 (AlonsoLS04/Vuelto-web.io#16) para un sprint futuro; no cambia el alcance del Sprint 5.
 
 ## Registro diario
 | Fecha | Hecho | Siguiente | Bloqueos |
