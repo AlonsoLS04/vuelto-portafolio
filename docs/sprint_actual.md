@@ -21,7 +21,7 @@ de arranque sin un plan de vuelta atrás. Los cambios se hacen en ramas y se ver
 | ID | Tarea | HU | Estado | Notas |
 |----|-------|----|--------|-------|
 | T1 | Crear `docs/` con backlog, sprints 1–4, ADR, arquitectura y DoD | HU-9.1 | ✅ | Reconstruido desde código, commits y fechas |
-| T2 | Configurar `git config user.email` con el correo `noreply` de GitHub | DT-9 | ⏳ | Solo afecta commits nuevos |
+| T2 | Configurar `git config user.email` con el correo `noreply` de GitHub | DT-9 | ✅ | Ya estaba configurado globalmente; commits desde el 2026-11-07 vinculados al perfil. Los anteriores quedan sin vincular (no se reescribe el historial) |
 | T3 | Renombrar `dockerignore` → `.dockerignore` en el bot | HU-9.3 | ✅ | Variables de Railway verificadas antes; commit en `MyFinanzas.io` y despliegue exitoso el 2026-11-07 |
 | T4 | Retirar la sección fuera de alcance de `SPEC.md` | HU-9.3 | ✅ | Solo documentación |
 | T5 | Enlazar la carpeta local del bot con `MyFinanzas.io` (`git init` + `fetch` + `reset`) | HU-9.2 | ✅ | Carpeta local clonada desde `MyFinanzas.io`; `.env` y `credenciales.json` siguen ignorados |
@@ -41,7 +41,7 @@ Estados: ⏳ Pendiente · 🔄 En curso · ✅ Hecha · ⛔ Bloqueada
 | Fecha | Hecho | Siguiente | Bloqueos |
 |-------|-------|-----------|----------|
 | 2026-11-07 | Auditoría y documentación retroactiva (T1). PO decide: código privado + repo público de caso de estudio. Hallazgo corregido: el bot sí estaba en GitHub (`MyFinanzas.io`). T3 y T4 hechas | T2, T5, T7 | — |
-| 2026-11-08 | Tablero en GitHub (Project Vuelto, milestone Sprint 5, 14 issues). PO completa HU-9.2 (T5, T6): PR #4 en `MyFinanzas.io`, issue cerrado y despliegue del bot verificado | T2, T7 | — |
+| 2026-11-08 | Tablero en GitHub (Project Vuelto, milestone Sprint 5, 14 issues). PO completa HU-9.2 (T5, T6): PR #4 en `MyFinanzas.io`, issue cerrado y despliegue del bot verificado. T2 (DT-9) verificada: commits con correo `noreply` vinculados al perfil | T7 | — |
 
 ## Riesgo detectado
 - Railway está en plan **Trial** (crédito limitado). Al agotarse, los servicios se detienen. Decisión del PO pendiente: elegir plan o alternativa.
