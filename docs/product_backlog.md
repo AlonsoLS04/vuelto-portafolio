@@ -114,7 +114,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-9.2 | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado, para trabajar con commits y ramas en lugar de subir archivos por la web. | M | 1 | Hecha (Sprint 5) |
 | HU-9.3 | Como PO, quiero corregir los hallazgos de la auditoría, para mantener el código limpio y seguro. | M | 2 | En sprint 5 |
 | HU-9.4 | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | S | 5 | En sprint 5 |
-| HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | S | 2 | En sprint 5 |
+| HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | S | 2 | Hecha (Sprint 5) |
 
 ## Épica 10 — Captura automática de pagos
 | ID | Historia | Prioridad | Puntos |
