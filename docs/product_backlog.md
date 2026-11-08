@@ -2,7 +2,7 @@
 
 **Product Owner:** Alonso
 **Producto:** Vuelto (bot de Telegram + app web)
-**Última actualización:** 2026-11-07
+**Última actualización:** 2026-11-08
 
 > **Nota de proceso.** Los Sprints 1 a 4 se desarrollaron en iteraciones cortas con asistencia de IA
 > y se documentaron en formato Scrum de forma **retroactiva** el 2026-11-07, a partir del código, el
@@ -22,6 +22,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 - Prioridad MoSCoW: **M**ust · **S**hould · **C**ould · **W**on't (por ahora)
 - Puntos (solo en historias pendientes): 1, 2, 3, 5, 8
 - Estado: Pendiente · En sprint N · Hecha (Sprint N)
+- Issue en GitHub junto al ID: `#N` si está en este repo, `AlonsoLS04/<repo>#N` si está en otro. Tablero: [Project Vuelto](https://github.com/users/AlonsoLS04/projects/3)
 
 ---
 
@@ -110,29 +111,29 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | ID | Historia | Prioridad | Puntos | Estado |
 |----|----------|-----------|--------|--------|
 | HU-9.1 | Como PO, quiero el proyecto documentado con Scrum (backlog, sprints, ADR, DoD), para gestionarlo y mostrarlo en mi portafolio. | M | 2 | En sprint 5 |
-| HU-9.2 | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado (`MyFinanzas.io`), para trabajar con commits y ramas en lugar de subir archivos por la web. | M | 1 | En sprint 5 |
+| HU-9.2 ([AlonsoLS04/MyFinanzas.io#1](https://github.com/AlonsoLS04/MyFinanzas.io/issues/1)) | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado (`MyFinanzas.io`), para trabajar con commits y ramas en lugar de subir archivos por la web. | M | 1 | En sprint 5 |
 | HU-9.3 | Como PO, quiero corregir los hallazgos de la auditoría (DT-1, DT-6), para mantener el código limpio y seguro. | M | 2 | En sprint 5 |
-| HU-9.4 | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | S | 5 | En sprint 5 |
-| HU-9.5 | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | S | 2 | En sprint 5 |
+| HU-9.4 ([AlonsoLS04/Vuelto-web.io#2](https://github.com/AlonsoLS04/Vuelto-web.io/issues/2)) | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | S | 5 | En sprint 5 |
+| HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | S | 2 | En sprint 5 |
 
 ## Épica 10 — Captura automática de pagos
 | ID | Historia | Prioridad | Puntos |
 |----|----------|-----------|--------|
-| SP-1 | Spike: investigar cómo capturar pagos de Yape en iPhone sin enviar nada (Atajos de iOS, correos de constancia, capturas). Entregable: recomendación con factibilidad y riesgos. | S | 3 |
-| HU-10.1 | Como usuario, quiero que cada pago por Yape se registre solo y el bot me confirme por Telegram. Depende de SP-1. | C | 8 |
+| SP-1 ([AlonsoLS04/Vuelto-web.io#4](https://github.com/AlonsoLS04/Vuelto-web.io/issues/4)) | Spike: investigar cómo capturar pagos de Yape en iPhone sin enviar nada (Atajos de iOS, correos de constancia, capturas). Entregable: recomendación con factibilidad y riesgos. | S | 3 |
+| HU-10.1 ([AlonsoLS04/MyFinanzas.io#2](https://github.com/AlonsoLS04/MyFinanzas.io/issues/2)) | Como usuario, quiero que cada pago por Yape se registre solo y el bot me confirme por Telegram. Depende de SP-1. | C | 8 |
 
 ## Épica 11 — Datos y BI
 | ID | Historia | Prioridad | Puntos |
 |----|----------|-----------|--------|
-| HU-11.1 | Como analista, quiero un dashboard de Power BI en modelo estrella (calendario, categorías, movimientos) publicado con capturas en el repo. | S | 5 |
-| HU-11.2 | Como analista, quiero cargar la hoja a una base SQL con un proceso programado, para consultar con SQL. | C | 5 |
-| HU-11.3 | Como usuario, quiero crear mis propias categorías (`/categorias`), compartidas entre bot y web. | C | 5 |
+| HU-11.1 ([AlonsoLS04/Vuelto-web.io#5](https://github.com/AlonsoLS04/Vuelto-web.io/issues/5)) | Como analista, quiero un dashboard de Power BI en modelo estrella (calendario, categorías, movimientos) publicado con capturas en el repo. | S | 5 |
+| HU-11.2 ([AlonsoLS04/Vuelto-web.io#6](https://github.com/AlonsoLS04/Vuelto-web.io/issues/6)) | Como analista, quiero cargar la hoja a una base SQL con un proceso programado, para consultar con SQL. | C | 5 |
+| HU-11.3 ([AlonsoLS04/Vuelto-web.io#7](https://github.com/AlonsoLS04/Vuelto-web.io/issues/7)) | Como usuario, quiero crear mis propias categorías (`/categorias`), compartidas entre bot y web. | C | 5 |
 
 ## Épica 12 — Experiencia
 | ID | Historia | Prioridad | Puntos |
 |----|----------|-----------|--------|
-| HU-12.1 | Como usuario, quiero que la web se actualice sola cuando registro algo por Telegram, sin recargar. | C | 3 |
-| HU-12.2 | Como usuario, quiero leer varias fotos de un mismo voucher largo. | C | 3 |
+| HU-12.1 ([AlonsoLS04/Vuelto-web.io#8](https://github.com/AlonsoLS04/Vuelto-web.io/issues/8)) | Como usuario, quiero que la web se actualice sola cuando registro algo por Telegram, sin recargar. | C | 3 |
+| HU-12.2 ([AlonsoLS04/MyFinanzas.io#3](https://github.com/AlonsoLS04/MyFinanzas.io/issues/3)) | Como usuario, quiero leer varias fotos de un mismo voucher largo. | C | 3 |
 | HU-12.3 | Como usuario, quiero Vuelto como app nativa para iOS y Android. | W | — |
 
 ## Backlog de mejoras (lenguaje natural del PO)
@@ -144,10 +145,10 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 |----|----------|--------|------------------|
 | DT-1 | En el bot el archivo se llamaba `dockerignore` (sin punto), así que Docker no lo aplicaba y `COPY . .` podía meter `.env` y `credenciales.json` en una imagen construida desde la carpeta local. En la práctica Railway construye desde GitHub, donde esos archivos nunca se subieron. | Medio | ✅ Renombrado a `.dockerignore` el 2026-11-07; despliegue verificado. |
 | DT-2 | El bot está en el repositorio privado `MyFinanzas.io` (subido por la web de GitHub), pero la carpeta local no es un clon de git. | Medio | Enlazar la carpeta al repositorio (HU-9.2). |
-| DT-3 | `vuelto-foto` es una copia intermedia de la web (Sprint 3) que quedó suelta. | Bajo | Archivar fuera del proyecto tras HU-9.2. |
-| DT-4 | El prompt de lectura de vouchers y la lista de categorías están duplicados en Python (bot) y JavaScript (web) y pueden divergir. | Medio | Fuente única de categorías y prompt. |
+| DT-3 ([AlonsoLS04/Vuelto-web.io#9](https://github.com/AlonsoLS04/Vuelto-web.io/issues/9)) | `vuelto-foto` es una copia intermedia de la web (Sprint 3) que quedó suelta. | Bajo | Archivar fuera del proyecto tras HU-9.2. |
+| DT-4 ([AlonsoLS04/Vuelto-web.io#10](https://github.com/AlonsoLS04/Vuelto-web.io/issues/10)) | El prompt de lectura de vouchers y la lista de categorías están duplicados en Python (bot) y JavaScript (web) y pueden divergir. | Medio | Fuente única de categorías y prompt. |
 | DT-5 | El bot guarda borradores con `PicklePersistence`; en Railway el disco es efímero y se pierden en cada redeploy. | Bajo | Aceptado por ahora; documentado en ADR-004. |
 | DT-6 | `SPEC.md` contenía una sección fuera del alcance del producto. | Bajo | ✅ Retirada el 2026-11-07. |
-| DT-7 | Código heredado del prototipo apagado (`PaymentSimulator`, `notificationParser`, `seed`). | Bajo | Decidir si se elimina o se mantiene como modo demo. |
+| DT-7 ([AlonsoLS04/Vuelto-web.io#11](https://github.com/AlonsoLS04/Vuelto-web.io/issues/11)) | Código heredado del prototipo apagado (`PaymentSimulator`, `notificationParser`, `seed`). | Bajo | Decidir si se elimina o se mantiene como modo demo. |
 | DT-8 | Sin tests ni CI. | Medio | HU-9.4. |
-| DT-9 | Los commits usan un correo de autor de ejemplo, por lo que GitHub no los vincula al perfil del autor. | Bajo (portafolio) | Configurar `git config user.email` con el correo `noreply` de GitHub. |
+| DT-9 ([AlonsoLS04/Vuelto-web.io#3](https://github.com/AlonsoLS04/Vuelto-web.io/issues/3)) | Los commits usan un correo de autor de ejemplo, por lo que GitHub no los vincula al perfil del autor. | Bajo (portafolio) | Configurar `git config user.email` con el correo `noreply` de GitHub. |
