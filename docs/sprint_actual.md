@@ -13,7 +13,7 @@ de arranque sin un plan de vuelta atrás. Los cambios se hacen en ramas y se ver
 |----|----------|--------|--------|
 | HU-9.1 | Documentación Scrum retroactiva | 2 | ✅ Hecha |
 | HU-9.3 | Corregir hallazgos de la auditoría | 2 | ✅ Hecha |
-| HU-9.2 | Carpeta del bot enlazada a su repo privado | 1 | ⏳ Pendiente |
+| HU-9.2 | Carpeta del bot enlazada a su repo privado | 1 | ✅ Hecha |
 | HU-9.4 | Tests + CI | 5 | ⏳ Pendiente |
 | HU-9.5 | Repositorio público de caso de estudio | 2 | 🔄 En curso |
 
@@ -24,8 +24,8 @@ de arranque sin un plan de vuelta atrás. Los cambios se hacen en ramas y se ver
 | T2 | Configurar `git config user.email` con el correo `noreply` de GitHub | DT-9 | ⏳ | Solo afecta commits nuevos |
 | T3 | Renombrar `dockerignore` → `.dockerignore` en el bot | HU-9.3 | ✅ | Variables de Railway verificadas antes; commit en `MyFinanzas.io` y despliegue exitoso el 2026-11-07 |
 | T4 | Retirar la sección fuera de alcance de `SPEC.md` | HU-9.3 | ✅ | Solo documentación |
-| T5 | Enlazar la carpeta local del bot con `MyFinanzas.io` (`git init` + `fetch` + `reset`) | HU-9.2 | ⏳ | No sube nada ni cambia Railway |
-| T6 | Versionar `instalar_servidor.sh` en el repo del bot | HU-9.2 | ⏳ | Opcional; un push a `main` redespliega el bot |
+| T5 | Enlazar la carpeta local del bot con `MyFinanzas.io` (`git init` + `fetch` + `reset`) | HU-9.2 | ✅ | Carpeta local clonada desde `MyFinanzas.io`; `.env` y `credenciales.json` siguen ignorados |
+| T6 | Versionar `instalar_servidor.sh` en el repo del bot | HU-9.2 | ✅ | PR #4 en `MyFinanzas.io`; despliegue en Railway exitoso el 2026-11-08 |
 | T7 | Crear repositorio **público** `vuelto-portafolio` (caso de estudio sin código) y subir la documentación | HU-9.5 | 🔄 | Repo creado; falta el primer push |
 | T8 | Tests de `nlpParser`, `budget`, `recurring` (Vitest) y de `parse_amount` / `parse_date` (pytest) | HU-9.4 | ⏳ | `SPEC.md` §5.4 ya trae casos de prueba |
 | T9 | GitHub Actions: build + tests en cada push | HU-9.4 | ⏳ | |
@@ -41,6 +41,7 @@ Estados: ⏳ Pendiente · 🔄 En curso · ✅ Hecha · ⛔ Bloqueada
 | Fecha | Hecho | Siguiente | Bloqueos |
 |-------|-------|-----------|----------|
 | 2026-11-07 | Auditoría y documentación retroactiva (T1). PO decide: código privado + repo público de caso de estudio. Hallazgo corregido: el bot sí estaba en GitHub (`MyFinanzas.io`). T3 y T4 hechas | T2, T5, T7 | — |
+| 2026-11-08 | Tablero en GitHub (Project Vuelto, milestone Sprint 5, 14 issues). PO completa HU-9.2 (T5, T6): PR #4 en `MyFinanzas.io`, issue cerrado y despliegue del bot verificado | T2, T7 | — |
 
 ## Riesgo detectado
 - Railway está en plan **Trial** (crédito limitado). Al agotarse, los servicios se detienen. Decisión del PO pendiente: elegir plan o alternativa.
