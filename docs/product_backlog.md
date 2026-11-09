@@ -180,7 +180,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 
 - **HU-ING.2** (solo categorías del tipo elegido) ya está cubierta por HU-6.8 (Sprint 4); su verificación va en los tests de BUG-1.
 - **HU-ING.8** (crear categorías de ingreso propias) se fusionó en **HU-11.3**.
-- Decisión pendiente del PO: si "Reembolsos" y "Transferencias recibidas" cuentan en el total de ingresos.
+- Decisión del PO (2026-11-08): "Reembolsos" y "Transferencias recibidas" **sí cuentan** en el total de ingresos.
 
 ## Épica PRE — Presupuesto mensual
 > Presupuesto siempre fijo y editable (los ingresos no lo cambian); disponible = presupuesto − gastos del mes; la diferencia con la suma de topes se muestra como "Sin asignar"; los ingresos del mes van en una tarjeta aparte. Resumen: tarjeta principal "Disponible de tu presupuesto" y dos secundarias, "Ingresos del mes" y "Balance del mes".
@@ -195,11 +195,14 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-PRE.7 | Como usuario, quiero que el bot me responda cuánto me queda del total y de la categoría al registrar un gasto. | S | 3 | Pendiente |
 | HU-PRE.9 | Como usuario, quiero copiar el presupuesto y los topes del mes anterior. | C | 2 | Pendiente |
 | HU-PRE.10 | Como usuario, quiero un modo estricto opcional donde todo el presupuesto quede asignado a categorías. | C | 3 | Pendiente |
+| HU-PRE.12 | Como usuario de Vuelto, quiero definir en qué día empieza mi mes de presupuesto, para que coincida con mi día de cobro. | S | 3 | Pendiente |
+| HU-PRE.13 | Como usuario de Vuelto, quiero ver al cerrar cada ciclo cuánto me sobró o cuánto me pasé de mi presupuesto, y consultar ese historial, para saber cómo me fue cada mes. | S | 3 | Pendiente |
+| HU-PRE.14 | Como usuario de Vuelto, quiero activar opcionalmente que el sobrante del ciclo pase al siguiente, para premiar los meses en que gasto menos. | C | 3 | Pendiente |
 
 - **HU-PRE.6** (avance por categoría y alertas al 80 % / 100 %) ya está cubierta por HU-7.1 y HU-7.2 (Sprint 3).
 - **HU-PRE.11** (balance del mes) se fusionó en HU-PRE.2.
 - Hoy el presupuesto y los topes son globales: HU-PRE.1 y HU-PRE.4 los pasan a **por mes**.
-- Preguntas pendientes del PO: ¿el mes va del día 1 al último o desde el día de cobro? ¿el dinero no gastado pasa al mes siguiente? (Hoy: mes calendario, sin acumular.)
+- **Decisiones del PO (2026-11-08, resueltas):** el mes de presupuesto es un **ciclo con día de inicio configurable** (por defecto 1; día fijo; si el mes no tiene ese día empieza el último día; se nombra por el mes en que termina, ej. "Noviembre · 22 oct – 21 nov"). El **sobrante no se acumula** ni el exceso se arrastra; al cerrar cada ciclo se guarda "Te sobró / Te pasaste" como historial. Una **sola función de ciclo** calcula todo lo "del mes" desde la primera historia de presupuesto; los movimientos guardan su fecha real.
 
 ## Backlog de mejoras (lenguaje natural del PO)
 <!-- Escribe aquí ideas sueltas. /planificar-sprint las convierte en historias. -->
