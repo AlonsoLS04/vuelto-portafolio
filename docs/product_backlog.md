@@ -136,6 +136,18 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-12.2 | Como usuario, quiero leer varias fotos de un mismo voucher largo. | C | 3 |
 | HU-12.3 | Como usuario, quiero Vuelto como app nativa para iOS y Android. | W | — |
 
+## Épica 13 — Lectura de vouchers resiliente (Sprint 6)
+> Que leer un voucher nunca muestre errores técnicos al usuario, ni en la web ni en el bot, aunque el servicio de IA esté saturado.
+
+| ID | Historia | Prioridad | Puntos | Estado |
+|----|----------|-----------|--------|--------|
+| HU-13.1 | Como usuario, quiero que si la IA está saturada el sistema reintente solo (web y bot), para no tener que volver a enviar el voucher. | M | 2 | Planificada (Sprint 6) |
+| HU-13.2 | Como usuario de la web, quiero ver un mensaje claro y un botón "Reintentar" si la lectura falla, para no ver códigos técnicos. | M | 2 | Planificada (Sprint 6) |
+| HU-13.3 | Como usuario del bot, quiero que el bot me avise que está leyendo y, si falla, me responda con un mensaje claro y un botón "Reintentar". | M | 2 | Planificada (Sprint 6) |
+| HU-13.5 | Como usuario, quiero que la imagen se comprima antes de enviarse a la IA, para que la lectura sea más rápida y falle menos. | S | 1 | Planificada (Sprint 6) |
+| HU-13.4 | Como Product Owner, quiero que cada fallo de la IA quede registrado, para medir con qué frecuencia pasa. | S | 2 | Planificada (Sprint 6) |
+| HU-13.6 | Como usuario, quiero que si la IA principal sigue saturada se use un proveedor de respaldo, para que mi voucher se lea igual. | C | 3 | Planificada (Sprint 6) |
+
 ## Backlog de mejoras (lenguaje natural del PO)
 <!-- Escribe aquí ideas sueltas. /planificar-sprint las convierte en historias. -->
 -
