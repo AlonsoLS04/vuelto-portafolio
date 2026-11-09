@@ -157,7 +157,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-IA.1 | Como usuario, quiero que la tarjeta no muestre "IA xx%", para ver solo tipo, categoría, fecha y monto. | M | 1 | Planificada (Sprint 7) |
 | HU-IA.2 | Como usuario, quiero que el detalle del movimiento no muestre la línea "IA: …", para que se vea limpio. | M | 1 | Planificada (Sprint 7) |
 | HU-IA.3 | Como dueño del producto, quiero que los datos de IA (método, fuente de la categoría, confianza) se guarden aunque no se muestren, para usarlos en una vista de administrador y en el BI. | M | 3 | Planificada (Sprint 7) |
-| BUG-1 | Como usuario, quiero que el tipo (Gasto/Ingreso), la categoría y el color del monto sean coherentes, para confiar en lo que registra la app. | M | 3 | Planificada (Sprint 7) |
+| BUG-1 | Como usuario, quiero que el tipo (Gasto/Ingreso), la categoría y el color del monto sean coherentes, para confiar en lo que registra la app. Causa encontrada: un ingreso escrito sin descripción recibe el nombre por defecto "Gasto". | M | 2 | Planificada (Sprint 7) |
 
 ## Épica IA — Vista de administrador
 | ID | Historia | Prioridad | Puntos | Estado |
