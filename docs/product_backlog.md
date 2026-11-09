@@ -22,6 +22,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 - Prioridad MoSCoW: **M**ust · **S**hould · **C**ould · **W**on't (por ahora)
 - Puntos (solo en historias pendientes): 1, 2, 3, 5, 8
 - Estado: Pendiente · En sprint N · Hecha (Sprint N)
+- Desde el 2026-11-08 también se usan IDs por sigla de épica (`HU-IA`, `HU-ING`, `HU-PRE`) y `BUG-n` para bugs, tal como los define el PO.
 - Seguimiento en un tablero privado de GitHub Projects. En este repositorio solo se publica el issue de HU-9.5 (#1).
 
 ---
@@ -127,7 +128,7 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 |----|----------|-----------|--------|
 | HU-11.1 | Como analista, quiero un dashboard de Power BI en modelo estrella (calendario, categorías, movimientos) publicado con capturas en el repo. | S | 5 |
 | HU-11.2 | Como analista, quiero cargar la hoja a una base SQL con un proceso programado, para consultar con SQL. | C | 5 |
-| HU-11.3 | Como usuario, quiero crear mis propias categorías (`/categorias`), compartidas entre bot y web. | C | 5 |
+| HU-11.3 | Como usuario, quiero crear mis propias categorías (`/categorias`) de gasto e ingreso, compartidas entre bot y web (incluye HU-ING.8). | C | 5 |
 
 ## Épica 12 — Experiencia
 | ID | Historia | Prioridad | Puntos |
@@ -147,6 +148,58 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-13.5 | Como usuario, quiero que la imagen se comprima antes de enviarse a la IA, para que la lectura sea más rápida y falle menos. | S | 1 | Planificada (Sprint 6) |
 | HU-13.4 | Como Product Owner, quiero que cada fallo de la IA quede registrado, para medir con qué frecuencia pasa. | S | 2 | Planificada (Sprint 6) |
 | HU-13.6 | Como usuario, quiero que si la IA principal sigue saturada se use un proveedor de respaldo, para que mi voucher se lea igual. | C | 3 | Planificada (Sprint 6) |
+
+## Épica IA — Información de IA en las tarjetas (Sprint 7)
+> Quitar de la vista del usuario la información técnica de IA sin perder esos datos, y corregir el bug de tipo mal clasificado. Refinada el 2026-11-08 contra el código.
+
+| ID | Historia | Prioridad | Puntos | Estado |
+|----|----------|-----------|--------|--------|
+| HU-IA.1 | Como usuario, quiero que la tarjeta no muestre "IA xx%", para ver solo tipo, categoría, fecha y monto. | M | 1 | Planificada (Sprint 7) |
+| HU-IA.2 | Como usuario, quiero que el detalle del movimiento no muestre la línea "IA: …", para que se vea limpio. | M | 1 | Planificada (Sprint 7) |
+| HU-IA.3 | Como dueño del producto, quiero que los datos de IA (método, fuente de la categoría, confianza) se guarden aunque no se muestren, para usarlos en una vista de administrador y en el BI. | M | 3 | Planificada (Sprint 7) |
+| BUG-1 | Como usuario, quiero que el tipo (Gasto/Ingreso), la categoría y el color del monto sean coherentes, para confiar en lo que registra la app. | M | 3 | Planificada (Sprint 7) |
+
+## Épica IA — Vista de administrador
+| ID | Historia | Prioridad | Puntos | Estado |
+|----|----------|-----------|--------|--------|
+| SP-2 | Spike: decidir cómo distinguir al administrador del resto (comparar seguridad, esfuerzo y costo). | S | 3 | Pendiente |
+| HU-IA.4 | Como administrador, quiero iniciar sesión en Vuelto, para que solo yo acceda a las funciones internas. Depende de SP-2. | S | 5 | Pendiente |
+| HU-IA.5 | Como administrador, quiero ver en cada tarjeta la información de IA (confianza, método, fuente). La API no la envía a quien no sea administrador. Depende de HU-IA.3 y HU-IA.4. | S | 3 | Pendiente |
+| HU-IA.6 | Como administrador, quiero un panel de calidad de la IA (confianza promedio, baja confianza). Depende de HU-IA.3 y HU-IA.4. | C | 5 | Pendiente |
+
+## Épica ING — Ingresos por categoría
+> Un apartado de ingresos equivalente al de gastos, con selector segmentado "Gastos | Ingresos" (verde para ingresos). Categorías iniciales: Sueldo, Freelance, Ventas, Inversiones e intereses, Reembolsos, Transferencias recibidas, Otros ingresos.
+
+| ID | Historia | Prioridad | Puntos | Estado |
+|----|----------|-----------|--------|--------|
+| HU-ING.1 | Como usuario, quiero un catálogo de categorías de ingreso separado del de gastos (ampliado a 7 categorías en web y bot), para clasificar bien lo que entra. | M | 2 | Pendiente |
+| HU-ING.3 | Como usuario, quiero un selector "Gastos | Ingresos" en la vista de categorías, para cambiar de análisis con un toque. | M | 3 | Pendiente |
+| HU-ING.4 | Como usuario, quiero ver el total de ingresos del mes por categoría, ordenado y con porcentaje, para saber de dónde viene más dinero. | M | 3 | Pendiente |
+| HU-ING.5 | Como usuario, quiero que el bot asigne la categoría de ingreso y me pida confirmar cuando no esté seguro. | S | 5 | Pendiente |
+| HU-ING.7 | Como usuario, quiero reclasificar los ingresos antiguos que quedaron en "Otros ingresos". | C | 2 | Pendiente |
+
+- **HU-ING.2** (solo categorías del tipo elegido) ya está cubierta por HU-6.8 (Sprint 4); su verificación va en los tests de BUG-1.
+- **HU-ING.8** (crear categorías de ingreso propias) se fusionó en **HU-11.3**.
+- Decisión pendiente del PO: si "Reembolsos" y "Transferencias recibidas" cuentan en el total de ingresos.
+
+## Épica PRE — Presupuesto mensual
+> Presupuesto siempre fijo y editable (los ingresos no lo cambian); disponible = presupuesto − gastos del mes; la diferencia con la suma de topes se muestra como "Sin asignar"; los ingresos del mes van en una tarjeta aparte. Resumen: tarjeta principal "Disponible de tu presupuesto" y dos secundarias, "Ingresos del mes" y "Balance del mes".
+
+| ID | Historia | Prioridad | Puntos | Estado |
+|----|----------|-----------|--------|--------|
+| HU-PRE.1 | Como usuario, quiero definir y editar un presupuesto mensual fijo, guardado por mes, para controlar cuánto planeo gastar. | M | 2 | Pendiente |
+| HU-PRE.2 | Como usuario, quiero ver "Ingresos del mes" y "Balance del mes" en tarjetas separadas del presupuesto (incluye HU-PRE.11). | M | 3 | Pendiente |
+| HU-PRE.3 | Como usuario, quiero ver "Disponible de tu presupuesto" y "Gastado S/ X de S/ Y" en tiempo real, en alerta si paso el presupuesto. | M | 3 | Pendiente |
+| HU-PRE.4 | Como usuario, quiero asignar un tope a cada categoría de gasto, guardado por mes. | M | 3 | Pendiente |
+| HU-PRE.5 | Como usuario, quiero ver "Sin asignar" (presupuesto − topes) y una alerta si asigné de más. | M | 2 | Pendiente |
+| HU-PRE.7 | Como usuario, quiero que el bot me responda cuánto me queda del total y de la categoría al registrar un gasto. | S | 3 | Pendiente |
+| HU-PRE.9 | Como usuario, quiero copiar el presupuesto y los topes del mes anterior. | C | 2 | Pendiente |
+| HU-PRE.10 | Como usuario, quiero un modo estricto opcional donde todo el presupuesto quede asignado a categorías. | C | 3 | Pendiente |
+
+- **HU-PRE.6** (avance por categoría y alertas al 80 % / 100 %) ya está cubierta por HU-7.1 y HU-7.2 (Sprint 3).
+- **HU-PRE.11** (balance del mes) se fusionó en HU-PRE.2.
+- Hoy el presupuesto y los topes son globales: HU-PRE.1 y HU-PRE.4 los pasan a **por mes**.
+- Preguntas pendientes del PO: ¿el mes va del día 1 al último o desde el día de cobro? ¿el dinero no gastado pasa al mes siguiente? (Hoy: mes calendario, sin acumular.)
 
 ## Backlog de mejoras (lenguaje natural del PO)
 <!-- Escribe aquí ideas sueltas. /planificar-sprint las convierte en historias. -->
