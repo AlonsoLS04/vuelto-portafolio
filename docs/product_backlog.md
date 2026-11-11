@@ -104,18 +104,18 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-8.2 | Como usuario, quiero que la web pida contraseña, bloquee temporalmente los intentos fallidos repetidos y mantenga la sesión iniciada. | 3 |
 | HU-8.3 | Como usuario, quiero que la credencial de Google viva solo en el servidor y nunca llegue al navegador. | 3 |
 
+## Épica 9 — Profesionalización
+| ID | Historia | Sprint |
+|----|----------|--------|
+| HU-9.1 | Como PO, quiero el proyecto documentado con Scrum (backlog, sprints, ADR, DoD), para gestionarlo y mostrarlo en mi portafolio. | 5 |
+| HU-9.2 | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado, para trabajar con commits y ramas en lugar de subir archivos por la web. | 5 |
+| HU-9.3 | Como PO, quiero corregir los hallazgos de la auditoría, para mantener el código limpio y seguro. | 5 |
+| HU-9.4 | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | 5 |
+| HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | 5 |
+
 ---
 
 # 🔜 Pendiente
-
-## Épica 9 — Profesionalización (Sprint 5)
-| ID | Historia | Prioridad | Puntos | Estado |
-|----|----------|-----------|--------|--------|
-| HU-9.1 | Como PO, quiero el proyecto documentado con Scrum (backlog, sprints, ADR, DoD), para gestionarlo y mostrarlo en mi portafolio. | M | 2 | En sprint 5 |
-| HU-9.2 | Como desarrollador, quiero la carpeta local del bot enlazada con su repositorio privado, para trabajar con commits y ramas en lugar de subir archivos por la web. | M | 1 | Hecha (Sprint 5) |
-| HU-9.3 | Como PO, quiero corregir los hallazgos de la auditoría, para mantener el código limpio y seguro. | M | 2 | En sprint 5 |
-| HU-9.4 | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | S | 5 | En sprint 5 |
-| HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | S | 2 | Hecha (Sprint 5) |
 
 ## Épica 10 — Captura automática de pagos
 | ID | Historia | Prioridad | Puntos |
@@ -209,11 +209,10 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 -
 
 ## Deuda técnica
-La deuda técnica se registra y prioriza en el repositorio privado. Resumen al 2026-11-08:
+La deuda técnica se registra y prioriza en el repositorio privado. Resumen al 2026-11-11:
 
 | Estado | Cantidad | Ejemplos |
 |--------|----------|----------|
-| ✅ Resuelta | 4 | Exclusión de archivos locales en la imagen Docker · limpieza de la especificación · código del bot bajo control de versiones · autoría de commits vinculada al perfil |
-| 🔜 Planificada | 1 | Tests automatizados y CI (HU-9.4, Sprint 5) |
+| ✅ Resuelta | 5 | Exclusión de archivos locales en la imagen Docker · limpieza de la especificación · código del bot bajo control de versiones · autoría de commits vinculada al perfil · tests automatizados y CI (HU-9.4) |
 | 📋 En backlog | 3 | Unificar la lista de categorías y el prompt entre bot y web · retirar código del prototipo inicial · ordenar carpetas locales |
 | ⚖️ Aceptada | 1 | Borradores del bot no persistentes entre despliegues ([ADR-004](decisiones/ADR-004-railway-para-despliegue.md)) |
