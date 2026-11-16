@@ -113,6 +113,17 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-9.4 | Como desarrollador, quiero tests de las funciones puras (parsers, presupuesto, recurrentes, `parse_amount`, `parse_date`) y CI en GitHub Actions. | 5 |
 | HU-9.5 ([#1](https://github.com/AlonsoLS04/vuelto-portafolio/issues/1)) | Como PO, quiero un repositorio público de caso de estudio (sin código) con capturas de datos ficticios, para mostrar el producto manteniendo el código privado. | 5 |
 
+## Épica 13 — Lectura de vouchers resiliente
+| ID | Historia | Sprint |
+|----|----------|--------|
+| HU-13.1 | Como usuario, quiero que si la IA está saturada el sistema reintente solo (web y bot), para no tener que volver a enviar el voucher. | 6 |
+| HU-13.2 | Como usuario de la web, quiero ver un mensaje claro y un botón "Reintentar" si la lectura falla, para no ver códigos técnicos. | 6 |
+| HU-13.3 | Como usuario del bot, quiero que el bot me avise que está leyendo y, si falla, me responda con un mensaje claro y un botón "Reintentar". | 6 |
+| HU-13.5 | Como usuario, quiero que la imagen se comprima antes de enviarse a la IA, para que la lectura sea más rápida y falle menos. | 6 |
+| HU-13.4 | Como Product Owner, quiero que cada fallo de la IA quede registrado, para medir con qué frecuencia pasa. | 6 |
+
+- **HU-13.6** (proveedor de IA de respaldo de otra empresa): **descartada (W)** por el PO el 2026-11-15. Vuelto usa un solo proveedor (Gemini) con un modelo de respaldo (HU-13.1). Ver [ADR-003](decisiones/ADR-003-extractor-gemini-con-alternativa-claude.md).
+
 ---
 
 # 🔜 Pendiente
@@ -136,18 +147,6 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-12.1 | Como usuario, quiero que la web se actualice sola cuando registro algo por Telegram, sin recargar. | C | 3 |
 | HU-12.2 | Como usuario, quiero leer varias fotos de un mismo voucher largo. | C | 3 |
 | HU-12.3 | Como usuario, quiero Vuelto como app nativa para iOS y Android. | W | — |
-
-## Épica 13 — Lectura de vouchers resiliente (Sprint 6)
-> Que leer un voucher nunca muestre errores técnicos al usuario, ni en la web ni en el bot, aunque el servicio de IA esté saturado.
-
-| ID | Historia | Prioridad | Puntos | Estado |
-|----|----------|-----------|--------|--------|
-| HU-13.1 | Como usuario, quiero que si la IA está saturada el sistema reintente solo (web y bot), para no tener que volver a enviar el voucher. | M | 2 | Planificada (Sprint 6) |
-| HU-13.2 | Como usuario de la web, quiero ver un mensaje claro y un botón "Reintentar" si la lectura falla, para no ver códigos técnicos. | M | 2 | Planificada (Sprint 6) |
-| HU-13.3 | Como usuario del bot, quiero que el bot me avise que está leyendo y, si falla, me responda con un mensaje claro y un botón "Reintentar". | M | 2 | Planificada (Sprint 6) |
-| HU-13.5 | Como usuario, quiero que la imagen se comprima antes de enviarse a la IA, para que la lectura sea más rápida y falle menos. | S | 1 | Planificada (Sprint 6) |
-| HU-13.4 | Como Product Owner, quiero que cada fallo de la IA quede registrado, para medir con qué frecuencia pasa. | S | 2 | Planificada (Sprint 6) |
-| HU-13.6 | Como usuario, quiero que si la IA principal sigue saturada se use un proveedor de respaldo, para que mi voucher se lea igual. | C | 3 | Planificada (Sprint 6) |
 
 ## Épica IA — Información de IA en las tarjetas (Sprint 7)
 > Quitar de la vista del usuario la información técnica de IA sin perder esos datos, y corregir el bug de tipo mal clasificado. Refinada el 2026-11-08 contra el código.
@@ -209,10 +208,10 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 -
 
 ## Deuda técnica
-La deuda técnica se registra y prioriza en el repositorio privado. Resumen al 2026-11-11:
+La deuda técnica se registra y prioriza en el repositorio privado. Resumen al 2026-11-15:
 
 | Estado | Cantidad | Ejemplos |
 |--------|----------|----------|
 | ✅ Resuelta | 5 | Exclusión de archivos locales en la imagen Docker · limpieza de la especificación · código del bot bajo control de versiones · autoría de commits vinculada al perfil · tests automatizados y CI (HU-9.4) |
-| 📋 En backlog | 3 | Unificar la lista de categorías y el prompt entre bot y web · retirar código del prototipo inicial · ordenar carpetas locales |
+| 📋 En backlog | 4 | Unificar la lista de categorías y el prompt entre bot y web · retirar código del prototipo inicial · ordenar carpetas locales · que la web también reintente ante errores de red, como el bot |
 | ⚖️ Aceptada | 1 | Borradores del bot no persistentes entre despliegues ([ADR-004](decisiones/ADR-004-railway-para-despliegue.md)) |

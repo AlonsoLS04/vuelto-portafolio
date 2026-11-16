@@ -3,6 +3,17 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 Cada sprint cerrado genera una versión. Las versiones 0.1.0–0.4.0 se registraron de forma retroactiva.
 
+## [1.1.0] - 2026-11-15 — Sprint 6: Lectura de vouchers resiliente
+### Añadido
+- [HU-13.1] Si la IA está saturada, la web y el bot reintentan solos con espera creciente y pasan a un modelo de respaldo.
+- [HU-13.2] Web: mensaje claro y botón "Reintentar" que reenvía la misma foto, sin códigos técnicos.
+- [HU-13.3] Bot: aviso "Leyendo tu voucher…" que se reemplaza por el resultado y botón "Reintentar" si falla.
+- [HU-13.4] Registro de cada lectura que necesitó reintentos o falló (canal, código, intentos, duración), en web y bot.
+- El CI de la web construye la imagen Docker y verifica que arranca.
+### Cambiado
+- [HU-13.5] Bot: las imágenes enviadas como archivo se comprimen antes de enviarse a la IA.
+- Vuelto usa un solo proveedor de IA (Gemini); se descartó un proveedor de respaldo de pago (HU-13.6).
+
 ## [1.0.0] - 2026-11-11 — Sprint 5: Profesionalización
 ### Añadido
 - [HU-9.1] Documentación Scrum: backlog, historial de sprints, ADR, arquitectura y Definición de Hecho.
