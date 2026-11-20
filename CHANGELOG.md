@@ -3,6 +3,14 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 Cada sprint cerrado genera una versión. Las versiones 0.1.0–0.4.0 se registraron de forma retroactiva.
 
+## [1.2.0] - 2026-11-20 — Sprint 7: Información de IA en las tarjetas
+### Añadido
+- [HU-IA.3] La web y el bot guardan el método de registro y la fuente de la categoría de cada movimiento nuevo, sin mostrarlos al usuario. No se guarda la confianza de la IA: el modelo no la devuelve.
+### Cambiado
+- [HU-IA.1] Web: la vista previa del registro rápido ya no muestra "IA xx%"; con foto se mantiene "Leído de la foto".
+- [HU-IA.2] Web: el detalle del movimiento ya no muestra la línea "IA: …".
+- Se descartó BUG-1: el cambio manual entre Gasto e Ingreso ya existe en la web y en Telegram.
+
 ## [1.1.0] - 2026-11-15 — Sprint 6: Lectura de vouchers resiliente
 ### Añadido
 - [HU-13.1] Si la IA está saturada, la web y el bot reintentan solos con espera creciente y pasan a un modelo de respaldo.

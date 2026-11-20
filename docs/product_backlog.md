@@ -124,6 +124,16 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 
 - **HU-13.6** (proveedor de IA de respaldo de otra empresa): **descartada (W)** por el PO el 2026-11-15. Vuelto usa un solo proveedor (Gemini) con un modelo de respaldo (HU-13.1). Ver [ADR-003](decisiones/ADR-003-extractor-gemini-con-alternativa-claude.md).
 
+## Épica IA — Información de IA en las tarjetas
+| ID | Historia | Sprint |
+|----|----------|--------|
+| HU-IA.3 | Como dueño del producto, quiero que los datos de IA (método de registro y fuente de la categoría) se guarden aunque no se muestren, para usarlos en una vista de administrador y en el BI. | 7 |
+| HU-IA.1 | Como usuario, quiero que la tarjeta de vista previa no muestre "IA xx%", para ver solo tipo, categoría, fecha y monto. | 7 |
+| HU-IA.2 | Como usuario, quiero que el detalle del movimiento no muestre la línea "IA: …", para que se vea limpio. | 7 |
+
+- **Sin confianza:** HU-IA.3 iba a guardar también la confianza de la IA, pero el modelo no la devuelve y el valor que se mostraba era fijo. Decisión del PO (2026-11-20): no se guardan datos inventados.
+- **BUG-1** (coherencia entre tipo, categoría y color del monto): **descartada** por el PO el 2026-11-20. El usuario ya puede cambiar entre Gasto e Ingreso en la web y en Telegram, y la IA nunca guarda una categoría que no corresponda al tipo.
+
 ---
 
 # 🔜 Pendiente
@@ -148,15 +158,21 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-12.2 | Como usuario, quiero leer varias fotos de un mismo voucher largo. | C | 3 |
 | HU-12.3 | Como usuario, quiero Vuelto como app nativa para iOS y Android. | W | — |
 
-## Épica IA — Información de IA en las tarjetas (Sprint 7)
-> Quitar de la vista del usuario la información técnica de IA sin perder esos datos, y corregir el bug de tipo mal clasificado. Refinada el 2026-11-08 contra el código.
+## Épica UI — Identidad visual (Sprint 8)
+> Darle a Vuelto una identidad visual propia y no genérica: elegir la dirección estética con prototipos reales y aplicarla
+> al sistema de diseño, a los montos y al Resumen. Solo cambia la interfaz de la web. Las historias se prueban primero en
+> una demo local y llegan a producción juntas, con el OK del PO.
 
 | ID | Historia | Prioridad | Puntos | Estado |
 |----|----------|-----------|--------|--------|
-| HU-IA.1 | Como usuario, quiero que la tarjeta no muestre "IA xx%", para ver solo tipo, categoría, fecha y monto. | M | 1 | Planificada (Sprint 7) |
-| HU-IA.2 | Como usuario, quiero que el detalle del movimiento no muestre la línea "IA: …", para que se vea limpio. | M | 1 | Planificada (Sprint 7) |
-| HU-IA.3 | Como dueño del producto, quiero que los datos de IA (método, fuente de la categoría, confianza) se guarden aunque no se muestren, para usarlos en una vista de administrador y en el BI. | M | 3 | Planificada (Sprint 7) |
-| BUG-1 | Como usuario, quiero que el tipo (Gasto/Ingreso), la categoría y el color del monto sean coherentes, para confiar en lo que registra la app. Causa encontrada: un ingreso escrito sin descripción recibe el nombre por defecto "Gasto". | M | 2 | Planificada (Sprint 7) |
+| SP-6 | Spike: prototipar el Resumen en 3 direcciones estéticas, con capturas en móvil y escritorio y el peso que agrega cada librería. | M | 3 | Planificada (Sprint 8) |
+| HU-UI.1 | Como usuario, quiero que toda la app use un único sistema de diseño (colores, tipografías, bordes, radios, espaciado), para que se vea coherente y propia. | M | 3 | Planificada (Sprint 8) |
+| HU-UI.2 | Como usuario, quiero que los montos usen cifras tabulares y una fuente monoespaciada alineada a la derecha, para compararlos de un vistazo. | M | 2 | Planificada (Sprint 8) |
+| HU-UI.3 | Como usuario, quiero el Resumen rediseñado ("Disponible de tu presupuesto", "Ingresos del mes" y "Balance del mes"), para entender cómo voy en menos de 3 segundos. | M | 5 | Planificada (Sprint 8) |
+| HU-UI.7 | Como dueño del producto, quiero una revisión visual automática y una auditoría de diseño antes de cerrar el sprint, para no publicar regresiones. | M | 2 | Planificada (Sprint 8) |
+| HU-UI.4 | Como usuario, quiero las tarjetas de movimientos rediseñadas con la nueva dirección, para leer mi historial más rápido. | S | 3 | Pendiente |
+| HU-UI.5 | Como usuario, quiero ver mis gastos por categoría y mi flujo mensual en gráficos con el estilo de la app. | S | 5 | Pendiente |
+| HU-UI.6 | Como usuario, quiero micro-interacciones sutiles, para que la app se sienta cuidada sin volverse lenta. | S | 3 | Pendiente |
 
 ## Épica IA — Vista de administrador
 | ID | Historia | Prioridad | Puntos | Estado |
@@ -165,6 +181,8 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-IA.4 | Como administrador, quiero iniciar sesión en Vuelto, para que solo yo acceda a las funciones internas. Depende de SP-2. | S | 5 | Pendiente |
 | HU-IA.5 | Como administrador, quiero ver en cada tarjeta la información de IA (confianza, método, fuente). La API no la envía a quien no sea administrador. Depende de HU-IA.3 y HU-IA.4. | S | 3 | Pendiente |
 | HU-IA.6 | Como administrador, quiero un panel de calidad de la IA (confianza promedio, baja confianza). Depende de HU-IA.3 y HU-IA.4. | C | 5 | Pendiente |
+
+- **HU-IA.6 — decisión pendiente del PO:** hoy, si el usuario corrige la categoría de un movimiento, la fuente de la categoría no cambia a "usuario". Se decide al refinar HU-IA.6, porque cambia cómo se mide la calidad de la IA.
 
 ## Épica ING — Ingresos por categoría
 > Un apartado de ingresos equivalente al de gastos, con selector segmentado "Gastos | Ingresos" (verde para ingresos). Categorías iniciales: Sueldo, Freelance, Ventas, Inversiones e intereses, Reembolsos, Transferencias recibidas, Otros ingresos.

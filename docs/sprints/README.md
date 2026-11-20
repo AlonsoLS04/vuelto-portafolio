@@ -8,7 +8,8 @@
 | [4](sprint-04.md) | 2026-11-07 | Ingresos en la web | v0.4.0 | ✅ Cerrado |
 | [5](sprint-05.md) | 2026-11-08 → 11 | Profesionalización | v1.0.0 | ✅ Cerrado |
 | [6](sprint-06.md) | 2026-11-12 → 15 | Lectura de vouchers resiliente | v1.1.0 | ✅ Cerrado |
-| [7](../sprint_actual.md) | por definir | Información de IA en las tarjetas | v1.2.0 | 🔄 Por planificar |
+| [7](sprint-07.md) | 2026-11-15 → 20 | Información de IA en las tarjetas | v1.2.0 | ✅ Cerrado |
+| [8](../sprint_actual.md) | desde 2026-11-21 | Identidad visual | v1.3.0 | 🔄 En curso |
 
 > **Cómo se reconstruyeron los Sprints 1–4.** Se desarrollaron como iteraciones cortas con asistencia de IA
 > (Claude) y se documentaron en formato Scrum el 2026-11-07. Las fechas, el alcance y el incremento salen de
