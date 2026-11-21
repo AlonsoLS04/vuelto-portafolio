@@ -52,12 +52,15 @@ web/
 ```
 
 ## Modelo de datos — pestaña `Movimientos`
-| ID | Fecha | Hora | Tipo | Monto | Moneda | Comercio | Categoria | Medio de pago | Nota | Origen | Registrado |
-|----|-------|------|------|-------|--------|----------|-----------|---------------|------|--------|------------|
+| ID | Fecha | Hora | Tipo | Monto | Moneda | Comercio | Categoria | Medio de pago | Nota | Origen | Registrado | Metodo | Fuente categoria |
+|----|-------|------|------|-------|--------|----------|-----------|---------------|------|--------|------------|--------|------------------|
 
 - `Monto` siempre positivo; el signo lo da `Tipo` (`gasto` / `ingreso`).
 - `Fecha` y `Monto` se escriben tipados para que Power BI no necesite conversiones.
 - `Origen` indica si el movimiento vino del bot (foto o texto) o de la web.
+- `Metodo` (foto, texto, voz, manual, recurrente…) y `Fuente categoria` (visión, diccionario, aprendido, usuario…) son
+  datos de IA que no se muestran al usuario; sirven para una futura vista de administrador y para el BI (Sprint 7).
+  No se guarda la confianza de la IA: el modelo no la devuelve.
 
 ## API de la web
 API REST bajo `/api/*`, protegida por sesión: CRUD de movimientos, lectura de vouchers (la imagen se comprime en el

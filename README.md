@@ -46,7 +46,8 @@ peruano; el usuario confirma o corrige antes de guardar; los datos quedan tipado
 | [4](docs/sprints/sprint-04.md) | 7 nov 2026 | Ingresos en la web | v0.4.0 |
 | [5](docs/sprints/sprint-05.md) | 8–11 nov 2026 | Profesionalización: seguridad, tests, CI | v1.0.0 |
 | [6](docs/sprints/sprint-06.md) | 12–15 nov 2026 | Lectura de vouchers resiliente | v1.1.0 |
-| [7](docs/sprint_actual.md) | por definir | Información de IA en las tarjetas | v1.2.0 (en planificación) |
+| [7](docs/sprints/sprint-07.md) | 15–20 nov 2026 | Información de IA en las tarjetas | v1.2.0 |
+| [8](docs/sprint_actual.md) | desde 21 nov 2026 | Identidad visual | v1.3.0 (en curso) |
 
 - 📋 [Product Backlog](docs/product_backlog.md) — visión, épicas, historias de usuario con criterios de aceptación y deuda técnica
 - 🔁 [Historial de sprints](docs/sprints/) — objetivo, incremento, evidencia y retrospectiva de cada sprint
