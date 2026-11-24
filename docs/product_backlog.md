@@ -2,7 +2,7 @@
 
 **Product Owner:** Alonso
 **Producto:** Vuelto (bot de Telegram + app web)
-**Última actualización:** 2026-11-08
+**Última actualización:** 2026-11-23
 
 > **Nota de proceso.** Los Sprints 1 a 4 se desarrollaron en iteraciones cortas con asistencia de IA
 > y se documentaron en formato Scrum de forma **retroactiva** el 2026-11-07, a partir del código, el
@@ -158,18 +158,18 @@ y deja los datos en una hoja estructurada lista para analizar en Power BI.
 | HU-12.2 | Como usuario, quiero leer varias fotos de un mismo voucher largo. | C | 3 |
 | HU-12.3 | Como usuario, quiero Vuelto como app nativa para iOS y Android. | W | — |
 
-## Épica UI — Identidad visual (Sprint 8)
+## Épica UI — Identidad visual (Sprint 8: núcleo ✅ en v1.3.0)
 > Darle a Vuelto una identidad visual propia y no genérica: elegir la dirección estética con prototipos reales y aplicarla
 > al sistema de diseño, a los montos y al Resumen. Solo cambia la interfaz de la web. Las historias se prueban primero en
 > una demo local y llegan a producción juntas, con el OK del PO.
 
 | ID | Historia | Prioridad | Puntos | Estado |
 |----|----------|-----------|--------|--------|
-| SP-6 | Spike: prototipar el Resumen en 3 direcciones estéticas, con capturas en móvil y escritorio y el peso que agrega cada librería. | M | 3 | Planificada (Sprint 8) |
-| HU-UI.1 | Como usuario, quiero que toda la app use un único sistema de diseño (colores, tipografías, bordes, radios, espaciado), para que se vea coherente y propia. | M | 3 | Planificada (Sprint 8) |
-| HU-UI.2 | Como usuario, quiero que los montos usen cifras tabulares y una fuente monoespaciada alineada a la derecha, para compararlos de un vistazo. | M | 2 | Planificada (Sprint 8) |
-| HU-UI.3 | Como usuario, quiero el Resumen rediseñado ("Disponible de tu presupuesto", "Ingresos del mes" y "Balance del mes"), para entender cómo voy en menos de 3 segundos. | M | 5 | Planificada (Sprint 8) |
-| HU-UI.7 | Como dueño del producto, quiero una revisión visual automática y una auditoría de diseño antes de cerrar el sprint, para no publicar regresiones. | M | 2 | Planificada (Sprint 8) |
+| SP-6 | Spike: prototipar 4 direcciones estéticas (4 pantallas cada una), con capturas en móvil y escritorio y el peso que agrega cada librería. Elegida: fondo casi negro, acento lima y Space Grotesk. | M | 3 | ✅ Hecha (Sprint 8) |
+| HU-UI.1 | Como usuario, quiero que toda la app use un único sistema de diseño (colores, tipografías, bordes, radios, espaciado), para que se vea coherente y propia. | M | 3 | ✅ Hecha (Sprint 8) |
+| HU-UI.2 | Como usuario, quiero que los montos de las listas usen cifras de ancho igual alineadas a la derecha, y el saldo grande cifras proporcionales, para compararlos de un vistazo. | M | 2 | ✅ Hecha (Sprint 8) |
+| HU-UI.3 | Como usuario, quiero el Resumen rediseñado ("Disponible de tu presupuesto", "Ingresos del mes" y "Balance del mes"), para entender cómo voy en menos de 3 segundos. | M | 5 | ✅ Hecha (Sprint 8) |
+| HU-UI.7 | Como dueño del producto, quiero una revisión visual automática y una auditoría de diseño antes de cerrar el sprint, para no publicar regresiones. | M | 2 | ✅ Hecha (Sprint 8) |
 | HU-UI.4 | Como usuario, quiero las tarjetas de movimientos rediseñadas con la nueva dirección, para leer mi historial más rápido. | S | 3 | Pendiente |
 | HU-UI.5 | Como usuario, quiero ver mis gastos por categoría y mi flujo mensual en gráficos con el estilo de la app. | S | 5 | Pendiente |
 | HU-UI.6 | Como usuario, quiero micro-interacciones sutiles, para que la app se sienta cuidada sin volverse lenta. | S | 3 | Pendiente |
