@@ -3,6 +3,21 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 Cada sprint cerrado genera una versión. Las versiones 0.1.0–0.4.0 se registraron de forma retroactiva.
 
+## [1.3.0] - 2026-11-23 — Sprint 8: Identidad visual
+### Añadido
+- [SP-6] Dirección visual elegida por el PO entre 4 prototipos: fondo casi negro, acento verde lima y tipografía Space Grotesk.
+- [HU-UI.1] Sistema de diseño único: colores, radios y tamaños de texto en un solo lugar; fuente alojada en la app; contraste WCAG AA verificado con tests.
+- [HU-UI.2] Montos con cifras de ancho igual en listas (céntimos alineados) y cifras proporcionales en el saldo grande.
+- [HU-UI.3] Resumen nuevo: "Disponible de tu presupuesto", "Puedes gastar por día" y tarjetas de ingresos y balance del mes.
+- [HU-UI.7] Pruebas visuales con Playwright y datos ficticios: comparación antes/después y zonas táctiles de al menos 44 px.
+### Cambiado
+- [HU-UI.1] Toda la web pasa al tema oscuro con acento lima; las etiquetas de billeteras digitales conservan su color de marca.
+- [HU-UI.7] Hojas emergentes y tarjetas con los radios de la nueva dirección; barra inferior sólida; textos del Resumen más claros.
+### Corregido
+- [HU-UI.3] Los montos de "Por categoría" no se alineaban con los de "Recientes".
+- [HU-UI.7] Textos largos de los movimientos cortados sin puntos suspensivos.
+- Configuración del servidor (sin código): la web leía fotos sin modelo de IA de respaldo; ahora tiene principal y respaldo.
+
 ## [1.2.0] - 2026-11-20 — Sprint 7: Información de IA en las tarjetas
 ### Añadido
 - [HU-IA.3] La web y el bot guardan el método de registro y la fuente de la categoría de cada movimiento nuevo, sin mostrarlos al usuario. No se guarda la confianza de la IA: el modelo no la devuelve.
